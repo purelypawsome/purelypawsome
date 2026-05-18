@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purely Pawsome | Professional Dog Walking & Pet Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Purely Pawsome</a>
+            <ul class="nav-links">
+                <li><a href="#trust">Why Us</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#calculator">Calculator</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#service-area">Service Area</a></li>
+                <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-slogan">Your Dog's Favorite Part of the Day.</h1>
+            <p class="hero-sub">Professional, reliable, and loving dog walking services in Burbank and surrounding areas. Because your pup deserves nothing less than pawsome care.</p>
+            <div class="hero-cta">
+                <a href="#pricing" class="btn-primary">Get Your Free Quote</a>
+                <a href="#contact" class="btn-secondary">Contact Us</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-image-placeholder">
+                <div class="paw-icon">🐾</div>
+                <span>Hero Image</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Spotlight -->
+    <section class="trust-section" id="trust">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">⭐</div>
+                    <div class="trust-number">5.0</div>
+                    <div class="trust-label">Average Rating</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">✓</div>
+                    <div class="trust-label">100% Satisfaction</div>
+                    <div class="trust-sublabel">Guarantee</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">📋</div>
+                    <div class="trust-label">No Contracts</div>
+                    <div class="trust-sublabel">Required</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">❤️</div>
+                    <div class="trust-label">Handled</div>
+                    <div class="trust-sublabel">With Care</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">📍</div>
+                    <div class="trust-number">10+</div>
+                    <div class="trust-label">Cities</div>
+                    <div class="trust-sublabel">Served</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Purely Pawsome -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">Why Choose Purely Pawsome?</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="founder-intro">
+                        <div class="founder-placeholder">
+                            <div class="paw-icon">👤</div>
+                            <span>Founder Photo</span>
+                        </div>
+                        <div class="founder-info">
+                            <h3>Meet Your Dog's New Best Friend</h3>
+                            <p>[Founder Name], Founder</p>
+                        </div>
+                    </div>
+                    <p class="bio-placeholder">
+                        [Your personal biography will go here. Share your passion for dogs, your experience with pets, and what inspired you to start Purely Pawsome. Let customers know about your background, certifications, and what makes your approach to dog walking unique. This is your chance to connect with potential clients on a personal level and show them why their dogs are in loving, capable hands.]
+                    </p>
+                    <div class="carousel-container">
+                        <div class="carousel-track">
+                            <div class="carousel-slide">
+                                <div class="carousel-placeholder">
+                                    <div class="paw-icon">📷</div>
+                                    <span>Team Photo 1</span>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-placeholder">
+                                    <div class="paw-icon">📷</div>
+                                    <span>Team Photo 2</span>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-placeholder">
+                                    <div class="paw-icon">📷</div>
+                                    <span>Team Photo 3</span>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-placeholder">
+                                    <div class="paw-icon">📷</div>
+                                    <span>Team Photo 4</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn carousel-prev">‹</button>
+                        <button class="carousel-btn carousel-next">›</button>
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fun Fact Calculator: Poop Calculator -->
+    <section class="calculator-fun-section" id="calculator">
+        <div class="container">
+            <h2 class="section-title">The Poop Calculator</h2>
+            <p class="section-subtitle">Ever wondered how much your furry friend produces? Let's do the math!</p>
+            <div class="poop-calculator">
+                <div class="calc-inputs">
+                    <div class="calc-group">
+                        <label for="num-dogs">Number of Dogs</label>
+                        <input type="number" id="num-dogs" min="1" max="20" value="1" placeholder="1">
+                    </div>
+                    <div class="calc-group">
+                        <label for="poops-per-day">Poops Per Dog Per Day</label>
+                        <input type="number" id="poops-per-day" min="1" max="10" value="2" placeholder="2">
+                    </div>
+                </div>
+                <button class="btn-calculate" onclick="calculatePoop()">Calculate</button>
+                <div class="poop-results">
+                    <div class="poop-result-item">
+                        <div class="result-number" id="monthly-poops">0</div>
+                        <div class="result-label">Poops Per Month</div>
+                    </div>
+                    <div class="poop-result-item">
+                        <div class="result-number" id="waste-weight">0 lbs</div>
+                        <div class="result-label">Waste Weight</div>
+                    </div>
+                    <div class="poop-result-item">
+                        <div class="result-number" id="scooping-time">0 min</div>
+                        <div class="result-label">Time Spent Scooping</div>
+                    </div>
+                    <div class="poop-result-item">
+                        <div class="result-number" id="bacteria-exposure">0M</div>
+                        <div class="result-label">Bacteria Exposure</div>
+                    </div>
+                </div>
+                <p class="fun-fact">💡 Average dog produces 0.5 lbs of waste per day. Let us handle this mess!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instant Price Calculator -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Instant Price Calculator</h2>
+            <p class="section-subtitle">Get an estimate in seconds. No commitment required!</p>
+            <div class="price-calculator">
+                <div class="price-grid">
+                    <div class="price-input-group">
+                        <label>Service Frequency</label>
+                        <div class="frequency-options">
+                            <label class="freq-option">
+                                <input type="radio" name="frequency" value="1" checked>
+                                <span class="freq-card">
+                                    <span class="freq-name">One Time</span>
+                                    <span class="freq-desc">Single walk</span>
+                                </span>
+                            </label>
+                            <label class="freq-option">
+                                <input type="radio" name="frequency" value="2">
+                                <span class="freq-card">
+                                    <span class="freq-name">2x / Week</span>
+                                    <span class="freq-desc">Twice weekly</span>
+                                </span>
+                            </label>
+                            <label class="freq-option">
+                                <input type="radio" name="frequency" value="3">
+                                <span class="freq-card">
+                                    <span class="freq-name">3x / Week</span>
+                                    <span class="freq-desc">Three times weekly</span>
+                                </span>
+                            </label>
+                            <label class="freq-option">
+                                <input type="radio" name="frequency" value="4">
+                                <span class="freq-card">
+                                    <span class="freq-name">4x / Week</span>
+                                    <span class="freq-desc">Four times weekly</span>
+                                </span>
+                            </label>
+                            <label class="freq-option">
+                                <input type="radio" name="frequency" value="5">
+                                <span class="freq-card">
+                                    <span class="freq-name">5x / Week</span>
+                                    <span class="freq-desc">Daily walks</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="price-input-group">
+                        <label for="num-dogs-price">Number of Dogs</label>
+                        <input type="number" id="num-dogs-price" min="1" max="10" value="1">
+                    </div>
+                    <div class="price-input-group">
+                        <label>Distance from Burbank</label>
+                        <select id="distance">
+                            <option value="0">Within Burbank (Base)</option>
+                            <option value="5">5 miles</option>
+                            <option value="10">10 miles (+$5)</option>
+                            <option value="15">15+ miles (+$10)</option>
+                        </select>
+                    </div>
+                    <div class="price-input-group">
+                        <label>Walk Duration</label>
+                        <select id="walk-duration">
+                            <option value="30">30 Minutes</option>
+                            <option value="45" selected>45 Minutes (+$5)</option>
+                            <option value="60">60 Minutes (+$10)</option>
+                        </select>
+                    </div>
+                    <div class="price-input-group addons">
+                        <label>Add-On Services</label>
+                        <div class="addon-options">
+                            <label class="addon-option">
+                                <input type="checkbox" id="poop-scoop-only" onchange="togglePoopScoopOnly()">
+                                <span class="addon-card">
+                                    <span class="addon-name">🐾 Poop Scoop Service Only</span>
+                                    <span class="addon-price">$15/visit</span>
+                                </span>
+                            </label>
+                            <label class="addon-option">
+                                <input type="checkbox" id="poop-scoop-combo" onchange="togglePoopScoopCombo()">
+                                <span class="addon-card">
+                                    <span class="addon-name">🐾 + Poop Scoop Add-On</span>
+                                    <span class="addon-price">$10/visit</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-estimate">
+                    <div class="estimate-breakdown">
+                        <div class="estimate-row">
+                            <span>Base Walk (<span class="walk-qty">45</span> min × <span class="dog-qty">1</span> dog × <span class="freq-qty">4</span> visits)</span>
+                            <span class="base-price">$<span>80</span></span>
+                        </div>
+                        <div class="estimate-row" id="distance-row" style="display:none;">
+                            <span>Distance Fee</span>
+                            <span>+$<span class="dist-fee">0</span></span>
+                        </div>
+                        <div class="estimate-row" id="duration-row" style="display:none;">
+                            <span>Extended Duration</span>
+                            <span>+$<span class="dur-fee">0</span></span>
+                        </div>
+                        <div class="estimate-row" id="poop-only-row" style="display:none;">
+                            <span>Poop Scoop Service (4 visits)</span>
+                            <span> $<span class="poop-only-fee">60</span></span>
+                        </div>
+                        <div class="estimate-row" id="poop-combo-row" style="display:none;">
+                            <span>Poop Scoop Add-On (4 visits)</span>
+                            <span> $<span class="poop-combo-fee">40</span></span>
+                        </div>
+                        <div class="estimate-row total">
+                            <span>Estimated Monthly Total</span>
+                            <span class="total-price">$<span>80</span></span>
+                        </div>
+                    </div>
+                    <p class="estimate-note">*Final pricing may vary. This is an estimate only.</p>
+                    <a href="#contact" class="btn-primary">Schedule Service</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="reviews-section" id="reviews">
+        <div class="container">
+            <h2 class="section-title">Happy Tails, Happy Clients</h2>
+            <p class="section-subtitle">Don't just take our word for it — hear from our satisfied customers!</p>
+            <div class="reviews-carousel">
+                <div class="reviews-track">
+                    <div class="review-card">
+                        <div class="review-photo-placeholder">
+                            <div class="paw-icon">🐕</div>
+                            <span>Customer + Dog</span>
+                        </div>
+                        <div class="review-content">
+                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="review-text">"Absolutely amazing service! [Placeholder review - replace with actual customer testimonial. These should reflect genuine experiences with the business.]"</p>
+                            <p class="review-author">— [Customer Name], [City]</p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-photo-placeholder">
+                            <div class="paw-icon">🐕</div>
+                            <span>Customer + Dog</span>
+                        </div>
+                        <div class="review-content">
+                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="review-text">"My dog always gets so excited when the Purely Pawsome walker arrives! Professional, punctual, and truly care about our furry family member. [TEST REVIEW - Replace with real testimonial.]"</p>
+                            <p class="review-author">— [Customer Name], [City]</p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-photo-placeholder">
+                            <div class="paw-icon">🐕</div>
+                            <span>Customer + Dog</span>
+                        </div>
+                        <div class="review-content">
+                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="review-text">"Best decision I ever made for my pup's daily exercise routine. The peace of mind knowing he's in good hands is priceless. [TEST REVIEW - Replace with real testimonial.]"</p>
+                            <p class="review-author">— [Customer Name], [City]</p>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-photo-placeholder">
+                            <div class="paw-icon">🐕</div>
+                            <span>Customer + Dog</span>
+                        </div>
+                        <div class="review-content">
+                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="review-text">"I love that there are no contracts and the service is so flexible. Perfect for my busy schedule! [TEST REVIEW - Replace with real testimonial.]"</p>
+                            <p class="review-author">— [Customer Name], [City]</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="reviews-btn reviews-prev">‹</button>
+                <button class="reviews-btn reviews-next">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Area -->
+    <section class="service-area-section" id="service-area">
+        <div class="container">
+            <h2 class="section-title">Service Area</h2>
+            <p class="section-subtitle">Proudly serving Burbank and the surrounding communities</p>
+            <div class="service-cities">
+                <div class="city-pin">
+                    <span class="city-name">📍 Burbank</span>
+                    <span class="city-badge">Base Area</span>
+                </div>
+                <div class="city-pin"><span class="city-name">📍 Glendale</span></div>
+                <div class="city-pin"><span class="city-name">📍 Los Feliz</span></div>
+                <div class="city-pin"><span class="city-name">📍 Sherman Oaks</span></div>
+                <div class="city-pin"><span class="city-name">📍 Encino</span></div>
+                <div class="city-pin"><span class="city-name">📍 Woodland Hills</span></div>
+                <div class="city-pin"><span class="city-name">📍 Studio City</span></div>
+                <div class="city-pin"><span class="city-name">📍 Toluca Lake</span></div>
+                <div class="city-pin"><span class="city-name">📍 Reseda</span></div>
+                <div class="city-pin"><span class="city-name">📍 Northridge</span></div>
+                <div class="city-pin"><span class="city-name">📍 San Fernando</span></div>
+            </div>
+            <div class="area-note">
+                <p>📞 Not sure if you're in our service area? Give us a call and we'll let you know!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Ready to Walk and Talk?</h2>
+            <p class="section-subtitle">Have questions? Want to schedule or reschedule services? We'd love to hear from you — reach out anytime!</p>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-method">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <h4>Phone</h4>
+                            <a href="tel:8184730024" class="contact-link">818-473-0024</a>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <span class="contact-icon">✉️</span>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:vallesleonardo822@gmail.com" class="contact-link">vallesleonardo822@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <span class="contact-icon">⏰</span>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Mon - Sun: 7:00 AM - 8:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <h3>Send Us a Message</h3>
+                    <div class="form-group">
+                        <label for="contact-name">Name</label>
+                        <input type="text" id="contact-name" name="name" required placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email</label>
+                        <input type="email" id="contact-email" name="email" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-phone">Phone</label>
+                        <input type="tel" id="contact-phone" name="phone" placeholder="(555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" name="message" rows="4" placeholder="How can we help you?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Purely Pawsome</h3>
+                    <p>Professional, reliable, and loving dog walking services. Because every dog deserves a pawsome day!</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#trust">Why Us</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#calculator">Calculator</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>📞 <a href="tel:8184730024">818-473-0024</a></p>
+                    <p>✉️ <a href="mailto:vallesleonardo822@gmail.com">vallesleonardo822@gmail.com</a></p>
+                </div>
+                <div class="footer-service-area">
+                    <h4>Service Area</h4>
+                    <ul class="service-list">
+                        <li>Burbank</li>
+                        <li>Glendale</li>
+                        <li>Los Feliz</li>
+                        <li>Sherman Oaks</li>
+                        <li>Encino</li>
+                        <li>Woodland Hills</li>
+                        <li>Studio City</li>
+                        <li>Toluca Lake</li>
+                        <li>Reseda</li>
+                        <li>Northridge</li>
+                        <li>San Fernando</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Purely Pawsome. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
