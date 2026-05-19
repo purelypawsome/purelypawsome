@@ -179,6 +179,15 @@ body {
     align-items: center;
 }
 
+.hero-img {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
 .hero-image-placeholder {
     width: 100%;
     max-width: 500px;
