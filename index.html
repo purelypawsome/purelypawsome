@@ -139,23 +139,36 @@
     <section class="calculator-fun-section" id="calculator">
         <div class="container">
             <h2 class="section-title">The Poop Calculator</h2>
-            <p class="section-subtitle">Ever wondered how much your furry friend produces? Let's do the math!</p>
+            <p class="section-subtitle">Drag the dials to see the numbers add up!</p>
             <div class="poop-calculator">
-                <div class="calc-inputs">
-                    <div class="calc-group">
-                        <label for="num-dogs">Number of Dogs</label>
-                        <input type="number" id="num-dogs" min="1" max="20" value="1" placeholder="1">
+                <div class="dial-row">
+                    <div class="dial-group">
+                        <label>Number of Dogs</label>
+                        <div class="dial-wrap">
+                            <div class="dial-track" id="dogs-track">
+                                <div class="dial-fill" id="dogs-fill"></div>
+                                <div class="dial-knob" id="dogs-knob" data-value="1"></div>
+                            </div>
+                            <span class="dial-value" id="dogs-display">1</span>
+                        </div>
+                        <div class="dial-labels"><span>1</span><span>10</span></div>
                     </div>
-                    <div class="calc-group">
-                        <label for="poops-per-day">Poops Per Dog Per Day</label>
-                        <input type="number" id="poops-per-day" min="1" max="10" value="2" placeholder="2">
+                    <div class="dial-group">
+                        <label>Poops Per Dog / Day</label>
+                        <div class="dial-wrap">
+                            <div class="dial-track" id="poops-track">
+                                <div class="dial-fill" id="poops-fill"></div>
+                                <div class="dial-knob" id="poops-knob" data-value="2"></div>
+                            </div>
+                            <span class="dial-value" id="poops-display">2</span>
+                        </div>
+                        <div class="dial-labels"><span>1</span><span>6</span></div>
                     </div>
                 </div>
-                <button class="btn-calculate" onclick="calculatePoop()">Calculate</button>
                 <div class="poop-results">
                     <div class="poop-result-item">
                         <div class="result-number" id="monthly-poops">0</div>
-                        <div class="result-label">Poops Per Month</div>
+                        <div class="result-label">Poops / Month</div>
                     </div>
                     <div class="poop-result-item">
                         <div class="result-number" id="waste-weight">0 lbs</div>
@@ -163,14 +176,14 @@
                     </div>
                     <div class="poop-result-item">
                         <div class="result-number" id="scooping-time">0 min</div>
-                        <div class="result-label">Time Spent Scooping</div>
+                        <div class="result-label">Time Scooping</div>
                     </div>
                     <div class="poop-result-item">
                         <div class="result-number" id="bacteria-exposure">0M</div>
-                        <div class="result-label">Bacteria Exposure</div>
+                        <div class="result-label">Bacteria Count</div>
                     </div>
                 </div>
-                <p class="fun-fact">💡 Average dog produces 0.5 lbs of waste per day. Let us handle this mess!</p>
+                <p class="fun-fact">💡 Average dog: ~2.5 poops/day, 0.4–0.5 lbs waste. Let us handle this!</p>
             </div>
         </div>
     </section>

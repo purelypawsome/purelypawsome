@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initAboutCarousel();
     initReviewsCarousel();
     initPriceCalculator();
+    initPoopDials();
 });
 
 /**
@@ -129,33 +130,119 @@ function initReviewsCarousel() {
 }
 
 /**
- * Dog Poop Calculator
+ * Dog Poop Calculator — Interactive Dials
  */
-function calculatePoop() {
-    const numDogs = parseInt(document.getElementById('num-dogs').value) || 0;
-    const poopsPerDay = parseInt(document.getElementById('poops-per-day').value) || 0;
-    
-    const daysPerMonth = 30;
-    
-    // Calculations
-    const monthlyPoops = numDogs * poopsPerDay * daysPerMonth;
-    
-    // Average dog poop: ~0.5 lbs per poop
-    const wasteWeight = (monthlyPoops * 0.5).toFixed(1);
-    
-    // Average time to scoop: ~30 seconds per poop
-    const scoopingTime = monthlyPoops * 0.5; // in minutes
-    
-    // Bacteria exposure: ~45 million bacteria per gram of dog feces
-    const bacteriaPerGram = 45000000;
-    const weightInGrams = wasteWeight * 453.592; // convert lbs to grams
-    const bacteriaExposure = Math.round(weightInGrams * bacteriaPerGram / 1000000); // in millions
-    
-    // Animate numbers
-    animateValue('monthly-poops', 0, monthlyPoops, 800);
-    animateValue('waste-weight', 0, parseFloat(wasteWeight), 800, ' lbs');
-    animateValue('scooping-time', 0, Math.round(scoopingTime), 800, ' min');
-    animateValue('bacteria-exposure', 0, bacteriaExposure, 800, 'M');
+function initPoopDials() {
+    const dogsKnob = document.getElementById('dogs-knob');
+    const dogsTrack = document.getElementById('dogs-track');
+    const dogsFill = document.getElementById('dogs-fill');
+    const dogsDisplay = document.getElementById('dogs-display');
+
+    const poopsKnob = document.getElementById('poops-knob');
+    const poopsTrack = document.getElementById('poops-track');
+    const poopsFill = document.getElementById('poops-fill');
+    const poopsDisplay = document.getElementById('poops-display');
+
+    if (!dogsKnob || !poopsKnob) return;
+
+    const dogsMin = 1, dogsMax = 10;
+    const poopsMin = 1, poopsMax = 6;
+
+    let currentDogs = 1;
+    let currentPoops = 2;
+
+    function updateDial(knob, fill, track, display, value, min, max) {
+        const pct = (value - min) / (max - min);
+        const trackWidth = track.offsetWidth;
+        const left = pct * trackWidth;
+        knob.style.left = left + 'px';
+        fill.style.width = pct * 100 + '%';
+        display.textContent = value;
+    }
+
+    function setupDial(knob, track, fill, display, min, max, onChange) {
+        let dragging = false;
+
+        function getValue(clientX) {
+            const rect = track.getBoundingClientRect();
+            let pct = (clientX - rect.left) / rect.width;
+            pct = Math.max(0, Math.min(1, pct));
+            return Math.round(pct * (max - min) + min);
+        }
+
+        knob.addEventListener('mousedown', (e) => {
+            dragging = true;
+            e.preventDefault();
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!dragging) return;
+            const value = getValue(e.clientX);
+            knob.dataset.value = value;
+            onChange(value);
+        });
+
+        document.addEventListener('mouseup', () => {
+            dragging = false;
+        });
+
+        // Touch support
+        knob.addEventListener('touchstart', (e) => {
+            dragging = true;
+            e.preventDefault();
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (!dragging) return;
+            const value = getValue(e.touches[0].clientX);
+            knob.dataset.value = value;
+            onChange(value);
+        });
+
+        document.addEventListener('touchend', () => {
+            dragging = false;
+        });
+
+        // Click on track to jump
+        track.addEventListener('click', (e) => {
+            const value = getValue(e.clientX);
+            knob.dataset.value = value;
+            onChange(value);
+        });
+    }
+
+    function calculatePoop() {
+        const daysPerMonth = 30;
+        const monthlyPoops = currentDogs * currentPoops * daysPerMonth;
+        // Average: 0.4 lbs per poop (USDA/AVMA: 0.25–0.5 lbs)
+        const wasteWeight = (monthlyPoops * 0.4).toFixed(1);
+        // 30 seconds per scoop
+        const scoopingTime = Math.round(monthlyPoops * 0.5);
+        // ~23 million bacteria per gram (EPA estimate for dog feces)
+        const bacteriaExposure = Math.round((wasteWeight * 453.592) * 23000000 / 1000000);
+
+        animateValue('monthly-poops', 0, monthlyPoops, 400);
+        animateValue('waste-weight', 0, parseFloat(wasteWeight), 400, ' lbs');
+        animateValue('scooping-time', 0, scoopingTime, 400, ' min');
+        animateValue('bacteria-exposure', 0, bacteriaExposure, 400, 'M');
+    }
+
+    setupDial(dogsKnob, dogsTrack, dogsFill, dogsDisplay, dogsMin, dogsMax, (val) => {
+        currentDogs = val;
+        updateDial(dogsKnob, dogsFill, dogsTrack, dogsDisplay, val, dogsMin, dogsMax);
+        calculatePoop();
+    });
+
+    setupDial(poopsKnob, poopsTrack, poopsFill, poopsDisplay, poopsMin, poopsMax, (val) => {
+        currentPoops = val;
+        updateDial(poopsKnob, poopsFill, poopsTrack, poopsDisplay, val, poopsMin, poopsMax);
+        calculatePoop();
+    });
+
+    // Init defaults
+    updateDial(dogsKnob, dogsFill, dogsTrack, dogsDisplay, currentDogs, dogsMin, dogsMax);
+    updateDial(poopsKnob, poopsFill, poopsTrack, poopsDisplay, currentPoops, poopsMin, poopsMax);
+    calculatePoop();
 }
 
 function animateValue(elementId, start, end, duration, suffix = '') {
