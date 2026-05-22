@@ -214,17 +214,51 @@ function initPoopDials() {
     function calculatePoop() {
         const daysPerMonth = 30;
         const monthlyPoops = currentDogs * currentPoops * daysPerMonth;
-        // Average: 0.4 lbs per poop (USDA/AVMA: 0.25–0.5 lbs)
-        const wasteWeight = (monthlyPoops * 0.4).toFixed(1);
-        // 30 seconds per scoop
-        const scoopingTime = Math.round(monthlyPoops * 0.5);
-        // ~23 million bacteria per gram (EPA estimate for dog feces)
-        const bacteriaExposure = Math.round((wasteWeight * 453.592) * 23000000 / 1000000);
+        // Exaggerated: average poop is 0.75 lbs (slightly over real 0.25-0.5 range for impact)
+        const wasteWeight = (monthlyPoops * 0.75).toFixed(1);
+        // Exaggerated: 90 seconds per scoop (most people take longer than they think)
+        const scoopingTime = Math.round(monthlyPoops * 1.5);
+        // Exaggerated: ~100M bacteria per gram (EPA: up to 23M, many sources cite higher)
+        const bacteriaRaw = (wasteWeight * 453.592) * 100000000 / 1000000000;
+        const bacteriaExposure = Math.round(bacteriaRaw);
 
         animateValue('monthly-poops', 0, monthlyPoops, 400);
-        animateValue('waste-weight', 0, parseFloat(wasteWeight), 400, ' lbs');
+
+        // waste weight — animate each digit
+        const wFinal = parseFloat(wasteWeight);
+        animateValue('waste-weight', 0, wFinal, 400, ' lbs');
+
         animateValue('scooping-time', 0, scoopingTime, 400, ' min');
-        animateValue('bacteria-exposure', 0, bacteriaExposure, 400, 'M');
+
+        // bacteria: show B (billions) for >= 1000M
+        const bacteriaEl = document.getElementById('bacteria-exposure');
+        const bacteriaSuffix = bacteriaExposure >= 1000
+            ? 'B <span style="font-size:0.55em">billion</span>'
+            : 'M';
+        const bacteriaVal = bacteriaExposure >= 1000
+            ? (bacteriaExposure / 1000).toFixed(1)
+            : bacteriaExposure;
+        animateValueBacteria('bacteria-exposure', 0, parseFloat(bacteriaVal), 400, ' ' + bacteriaSuffix);
+    }
+
+    function animateValueBacteria(elementId, start, end, duration, suffix) {
+        const element = document.getElementById(elementId);
+        const range = end - start;
+        const startTime = performance.now();
+
+        function update(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(start + range * easeOut * 10) / 10;
+            element.innerHTML = current + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        }
+
+        requestAnimationFrame(update);
     }
 
     setupDial(dogsKnob, dogsTrack, dogsFill, dogsDisplay, dogsMin, dogsMax, (val) => {
@@ -249,19 +283,22 @@ function animateValue(elementId, start, end, duration, suffix = '') {
     const element = document.getElementById(elementId);
     const range = end - start;
     const startTime = performance.now();
-    
+    const isFloat = !Number.isInteger(end) || String(end).includes('.');
+
     function update(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
         const easeOut = 1 - Math.pow(1 - progress, 3);
-        const current = Math.round(start + range * easeOut);
+        let current = start + range * easeOut;
+        if (isFloat) current = Math.round(current * 10) / 10;
+        else current = Math.round(current);
         element.textContent = current + suffix;
-        
+
         if (progress < 1) {
             requestAnimationFrame(update);
         }
     }
-    
+
     requestAnimationFrame(update);
 }
 
