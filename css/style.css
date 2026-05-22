@@ -525,9 +525,23 @@ body {
 /* ============================================
    Poop Calculator Section
    ============================================ */
+.fun-fact-label {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+}
+
 .calculator-fun-section {
     padding: 60px 0;
     background: var(--color-gray);
+}
+
+.calculator-fun-section .section-subtitle {
+    margin-bottom: 0;
 }
 
 .poop-calculator {
